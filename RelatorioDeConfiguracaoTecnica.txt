@@ -1,0 +1,65 @@
+📑 Relatório de Configuração Técnica (Detalhes de Configuração)
+Este documento detalha os parâmetros de rede aplicados em cada dispositivo da topologia para referência técnica e auditoria.
+
+💻 PC-A (Cliente Externo)
+Endereço IP: 192.168.1.10
+Máscara de Sub-redes: 255.255.255.0
+Gateway padrão: 192.168.1.1
+Servidor DNS: 10.0.0.10
+
+🌐 Roteador-1 (Gateway)
+As configurações foram aplicadas via CLI para as interfaces Gigabit ou FastEthernet:
+
+Interface GigabitEthernet 0/0 (Rede PC-A)
+Trecho de código:
+interface GigabitEthernet0/0
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
+
+Interface GigabitEthernet 0/1 (Rede Servidor)
+Trecho de código
+interface GigabitEthernet0/1
+ ip address 10.0.0.1 255.255.255.0
+ no shutdown
+
+🖥️ Servidor-Web (DNS & HTTP)
+Configuração de IP
+Endereço IP: 10.0.0.10
+Máscara de Sub-redes: 255.255.255.0
+Gateway padrão: 10.0.0.1
+Serviço DNS
+Status: LIGADO
+Nome do Disco: ciscolearn.web.com
+Tipo: Um Recorde
+Endereço: 10.0.0.10
+Serviço HTTP
+
+Arquivo: index.html
+Conteúdo Personalizado:
+
+HTML
+<html>
+  <center>
+    <h1>Bem-vindo ao Servidor Cisco Learn</h1>
+    <p>Projeto de Redes e Troubleshooting - Concluido com Sucesso!</p>
+  </center>
+</html>
+📊 Configuração da PDU Complexa (Modo Simulação)
+Utilizada para validação de tráfego na Parte 4:
+
+Aplicação: HTTP
+
+IP de origem: 192.168.1.10
+IP de destino: 10.0.0.10
+Porte de origem: 1000
+Porto de destino: 80
+Intervalo Periódico: 120 seconds
+
+Como salvar isso no GitHub:
+No seu repositório, clique em Add file > Create new file.
+
+Dê o nome de .configs.md
+
+Cole o conteúdo acima.
+
+Clique em Commit changes.
